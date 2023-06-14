@@ -1,0 +1,14 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            // 遍历当前元素，并在map中寻找是否有匹配的key
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
+            }
+            // 如果没找到匹配对，就把访问过的元素和下标加入到map中
+            map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+}
